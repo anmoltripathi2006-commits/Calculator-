@@ -1,12 +1,17 @@
-function calculateSum() {
-    let a = Number(document.getElementById("num1").value);
-    let b = Number(document.getElementById("num2").value);
+let display = document.getElementById("display");
 
-    if (isNaN(a) || isNaN(b)) {
-        document.getElementById("result").innerText = "Please enter valid numbers";
-        return;
-    }
+function appendValue(value) {
+  display.value += value;
+}
 
-    let sum = a + b;
-    document.getElementById("result").innerText = "Sum = " + sum;
+function clearDisplay() {
+  display.value = "";
+}
+
+function calculate() {
+  try {
+    display.value = eval(display.value);
+  } catch {
+    display.value = "Error";
+  }
 }
